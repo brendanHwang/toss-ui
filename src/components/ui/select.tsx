@@ -137,7 +137,7 @@ const SelectItem = React.forwardRef<
     className={cn(
       // 토스 스타일 Select Item
       "relative flex w-full cursor-pointer select-none items-center",
-      "py-2.5 px-3 rounded-lg",
+      "py-2.5 pl-3 pr-9 rounded-lg",
       "text-[15px] text-foreground",
       "outline-none transition-colors",
       "focus:bg-muted",
@@ -146,12 +146,12 @@ const SelectItem = React.forwardRef<
     )}
     {...props}
   >
-    <span className="absolute right-3 flex size-5 items-center justify-center">
-      <SelectPrimitive.ItemIndicator>
-        <Check className="size-5 text-primary" />
-      </SelectPrimitive.ItemIndicator>
+    <SelectPrimitive.ItemIndicator className="absolute right-2 shrink-0">
+      <Check className="size-5 text-primary" />
+    </SelectPrimitive.ItemIndicator>
+    <span className="truncate">
+      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </span>
-    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
 ))
 SelectItem.displayName = SelectPrimitive.Item.displayName
