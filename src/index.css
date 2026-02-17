@@ -1,0 +1,382 @@
+/* Pretendard 폰트 - 토스 Product Sans 대체 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ============================================
+ * TDS (Toss Design System) - 토스 디자인 시스템
+ * ============================================
+ */
+
+@theme inline {
+    /* ========== Radius (토스 공식) ========== */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+    
+    /* shadcn 호환 */
+    --radius: 12px;
+    
+    /* ========== 색상 변수 매핑 ========== */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+    
+    /* ========== 폰트 ========== */
+    --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    
+    /* ========== 토스 컬러 팔레트 (커스텀 변수) ========== */
+    /* Blue */
+    --toss-blue-50: #E8F3FF;
+    --toss-blue-100: #C7DCFF;
+    --toss-blue-200: #85B8FF;
+    --toss-blue-300: #4593FC;
+    --toss-blue-400: #3182F6;
+    --toss-blue-500: #1B64DA;
+    --toss-blue-600: #1957C2;
+    --toss-blue-700: #194AA6;
+    
+    /* Gray */
+    --toss-gray-50: #F7F8FA;
+    --toss-gray-100: #F2F4F6;
+    --toss-gray-200: #E5E8EB;
+    --toss-gray-300: #D1D6DB;
+    --toss-gray-400: #B0B8C1;
+    --toss-gray-500: #8B95A1;
+    --toss-gray-600: #6B7684;
+    --toss-gray-700: #4E5968;
+    --toss-gray-800: #333D4B;
+    --toss-gray-900: #191F28;
+    
+    /* Semantic Colors */
+    --toss-red: #F04452;
+    --toss-red-light: #FFEBEE;
+    --toss-orange: #FF9500;
+    --toss-orange-light: #FFF3E0;
+    --toss-yellow: #FFC800;
+    --toss-yellow-light: #FFFDE7;
+    --toss-green: #30C85E;
+    --toss-green-light: #E5F9ED;
+    --toss-purple: #936DFF;
+    --toss-purple-light: #F3EFFF;
+}
+
+:root {
+    /* ========== 토스 라이트 모드 ========== */
+    
+    /* 배경 - Gray 50 */
+    --background: #F7F8FA;
+    --foreground: #191F28; /* Gray 900 */
+    
+    /* 카드 - 순백 */
+    --card: #FFFFFF;
+    --card-foreground: #191F28;
+    
+    /* 팝오버 */
+    --popover: #FFFFFF;
+    --popover-foreground: #191F28;
+    
+    /* Primary - 토스 블루 400 */
+    --primary: #3182F6;
+    --primary-foreground: #FFFFFF;
+    
+    /* Secondary - 연한 파랑 */
+    --secondary: #E8F3FF; /* Blue 50 */
+    --secondary-foreground: #3182F6;
+    
+    /* Muted - Gray 100 */
+    --muted: #F2F4F6;
+    --muted-foreground: #8B95A1; /* Gray 500 */
+    
+    /* Accent */
+    --accent: #F2F4F6;
+    --accent-foreground: #191F28;
+    
+    /* Destructive - 토스 레드 */
+    --destructive: #F04452;
+    --destructive-foreground: #FFFFFF;
+    
+    /* Border - Gray 200 */
+    --border: #E5E8EB;
+    --input: #F2F4F6;
+    --ring: #3182F6;
+    
+    /* Charts */
+    --chart-1: #3182F6; /* Blue */
+    --chart-2: #30C85E; /* Green */
+    --chart-3: #FFC800; /* Yellow */
+    --chart-4: #936DFF; /* Purple */
+    --chart-5: #F04452; /* Red */
+    
+    /* Sidebar */
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #191F28;
+    --sidebar-primary: #3182F6;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #F2F4F6;
+    --sidebar-accent-foreground: #191F28;
+    --sidebar-border: #E5E8EB;
+    --sidebar-ring: #3182F6;
+}
+
+.dark {
+    /* ========== 토스 다크 모드 ========== */
+    --background: #17171C;
+    --foreground: #ECECEF;
+    
+    --card: #212127;
+    --card-foreground: #ECECEF;
+    
+    --popover: #212127;
+    --popover-foreground: #ECECEF;
+    
+    --primary: #4593FC; /* Blue 300 - 다크모드에서 더 밝게 */
+    --primary-foreground: #17171C;
+    
+    --secondary: #2A3441;
+    --secondary-foreground: #4593FC;
+    
+    --muted: #2C2C35;
+    --muted-foreground: #8B95A1;
+    
+    --accent: #2C2C35;
+    --accent-foreground: #ECECEF;
+    
+    --destructive: #FF6B6B;
+    --destructive-foreground: #17171C;
+    
+    --border: #3D3D47;
+    --input: #2C2C35;
+    --ring: #4593FC;
+    
+    --chart-1: #4593FC;
+    --chart-2: #4CD471;
+    --chart-3: #FFD426;
+    --chart-4: #A78BFF;
+    --chart-5: #FF6B6B;
+    
+    --sidebar: #212127;
+    --sidebar-foreground: #ECECEF;
+    --sidebar-primary: #4593FC;
+    --sidebar-primary-foreground: #17171C;
+    --sidebar-accent: #2C2C35;
+    --sidebar-accent-foreground: #ECECEF;
+    --sidebar-border: #3D3D47;
+    --sidebar-ring: #4593FC;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    
+    html {
+        /* 토스는 기본 폰트 사이즈 16px */
+        font-size: 16px;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+        @apply bg-background text-foreground antialiased;
+        font-family: var(--font-sans);
+        font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+        letter-spacing: -0.02em; /* 토스 특유의 좁은 자간 */
+        line-height: 1.5;
+        word-break: keep-all; /* 한글 단어 단위 줄바꿈 */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* ========== 토스 타이포그래피 시스템 ========== */
+@layer utilities {
+    /* Display */
+    .toss-display {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.3;
+        letter-spacing: -0.03em;
+    }
+    
+    /* Title */
+    .toss-title1 {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.35;
+        letter-spacing: -0.02em;
+    }
+    
+    .toss-title2 {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+    }
+    
+    .toss-title3 {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+    }
+    
+    /* Headline */
+    .toss-headline {
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.45;
+        letter-spacing: -0.02em;
+    }
+    
+    /* Body */
+    .toss-body1 {
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: -0.02em;
+    }
+    
+    .toss-body2 {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: -0.02em;
+    }
+    
+    /* Caption */
+    .toss-caption1 {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+    }
+    
+    .toss-caption2 {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0;
+    }
+    
+    /* 토스 그림자 */
+    .toss-shadow-xs {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .toss-shadow-sm {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .toss-shadow-md {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .toss-shadow-lg {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* 토스 블러 효과 (iOS 스타일) */
+    .toss-blur {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+
+/* ========== 토스 컴포넌트 스타일 ========== */
+@layer components {
+    /* 버튼 기본 스타일 강화 */
+    .btn-toss {
+        @apply font-semibold transition-all duration-150;
+        @apply active:scale-[0.98];
+    }
+    
+    /* 토스 스타일 카드 */
+    .card-toss {
+        @apply bg-card rounded-2xl;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* 토스 인풋 */
+    .input-toss {
+        @apply bg-muted border-0 rounded-xl h-12 px-4;
+        @apply focus:ring-2 focus:ring-primary/30;
+    }
+    
+    /* 토스 스타일 리스트 아이템 */
+    .list-item-toss {
+        @apply flex items-center gap-4 p-4 bg-card rounded-2xl;
+        @apply hover:bg-muted/50 transition-colors cursor-pointer;
+        @apply active:scale-[0.99];
+    }
+}
+
+/* ========== 애니메이션 ========== */
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* 스크롤바 스타일 (토스 스타일) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D1D6DB;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #B0B8C1;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #4E5968;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #6B7684;
+}
