@@ -93,14 +93,14 @@ const AlertDialogHeader = ({
 )
 AlertDialogHeader.displayName = "AlertDialogHeader"
 
-/** Alert Dialog Footer - 버튼 영역 (토스: 버튼 간격 8px, 상단 여백 20px) */
+/** Alert Dialog Footer - 버튼 영역 (토스: 항상 가로 배치, 간격 8px) */
 const AlertDialogFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     data-slot="alert-dialog-footer"
-    className={cn("flex gap-2 mt-5", className)}
+    className={cn("flex flex-row gap-2 mt-5", className)}
     {...props}
   />
 )
@@ -132,20 +132,20 @@ const AlertDialogDescription = React.forwardRef<
 ))
 AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName
 
-/** Alert Action 버튼 - 모바일 Dialog용 xl 사이즈 (48px) */
+/** Alert Action 버튼 - lg 사이즈 (44px) */
 const AlertDialogAction = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Action
     ref={ref}
-    className={cn(buttonVariants({ size: "xl" }), "flex-1", className)}
+    className={cn(buttonVariants({ size: "lg" }), "flex-1", className)}
     {...props}
   />
 ))
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName
 
-/** Alert Cancel 버튼 - 모바일 Dialog용 xl 사이즈 (48px), outline */
+/** Alert Cancel 버튼 - lg 사이즈 (44px), outline */
 const AlertDialogCancel = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Cancel>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel>
@@ -153,7 +153,7 @@ const AlertDialogCancel = React.forwardRef<
   <AlertDialogPrimitive.Cancel
     ref={ref}
     className={cn(
-      buttonVariants({ variant: "outline", size: "xl" }),
+      buttonVariants({ variant: "outline", size: "lg" }),
       "flex-1",
       className
     )}

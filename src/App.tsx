@@ -671,8 +671,8 @@ function App() {
                     </DialogDescription>
                   </DialogHeader>
                   <DialogFooter>
-                    <Button variant="outline" size="xl" className="flex-1">취소</Button>
-                    <Button size="xl" className="flex-1">확인</Button>
+                    <Button variant="outline" size="lg" className="flex-1">취소</Button>
+                    <Button size="lg" className="flex-1">확인</Button>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>

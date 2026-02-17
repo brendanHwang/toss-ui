@@ -109,7 +109,7 @@ DialogHeader.displayName = "DialogHeader"
 
 /**
  * Dialog Footer - 버튼 영역
- * 토스 스타일: 버튼 간격 좁게, 상단 여백 적당히
+ * 토스 스타일: 항상 가로 배치, 버튼 간격 8px
  */
 const DialogFooter = ({
   className,
@@ -118,7 +118,7 @@ const DialogFooter = ({
   <div
     data-slot="dialog-footer"
     className={cn(
-      "flex flex-col-reverse gap-2 sm:flex-row sm:gap-2 sm:justify-end mt-5",
+      "flex flex-row gap-2 mt-5",
       className
     )}
     {...props}

@@ -70,8 +70,8 @@ const buttonVariants = cva(
         /** Large - 주요 CTA, Dialog 버튼 (44px) */
         lg: "h-11 px-5 rounded-xl text-[15px]",
         
-        /** Extra Large - Dialog/하단 고정 CTA (52px) */
-        xl: "h-[52px] px-6 rounded-xl text-[16px]",
+        /** Extra Large - Dialog/하단 고정 CTA (48px) */
+        xl: "h-12 px-6 rounded-xl text-[16px]",
         
         /** 아이콘 버튼들 */
         icon: "size-9 rounded-lg",
