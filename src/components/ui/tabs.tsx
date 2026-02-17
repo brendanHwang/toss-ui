@@ -110,6 +110,49 @@ const UnderlineTabsTrigger = React.forwardRef<
 ))
 UnderlineTabsTrigger.displayName = "UnderlineTabsTrigger"
 
+// Bold Tabs - 토스증권 스타일 (선택 시 텍스트가 굵어지는 탭)
+const BoldTabs = TabsPrimitive.Root
+
+const BoldTabsList = React.forwardRef<
+  React.ComponentRef<typeof TabsPrimitive.List>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.List
+    ref={ref}
+    data-slot="bold-tabs-list"
+    className={cn(
+      // 토스증권 스타일 - 배경 없이 탭만 나열
+      "flex items-center gap-5",
+      className
+    )}
+    {...props}
+  />
+))
+BoldTabsList.displayName = "BoldTabsList"
+
+const BoldTabsTrigger = React.forwardRef<
+  React.ComponentRef<typeof TabsPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.Trigger
+    ref={ref}
+    data-slot="bold-tabs-trigger"
+    className={cn(
+      // 토스증권 스타일 - 선택 시 텍스트가 굵어지고 색상 진해짐
+      "relative py-2",
+      "text-[15px] text-muted-foreground font-normal",
+      "transition-all duration-150",
+      "focus-visible:outline-none",
+      "disabled:pointer-events-none disabled:opacity-40",
+      // 선택됨 - 텍스트 굵어지고 진해짐
+      "data-[state=active]:text-foreground data-[state=active]:font-bold",
+      className
+    )}
+    {...props}
+  />
+))
+BoldTabsTrigger.displayName = "BoldTabsTrigger"
+
 export { 
   Tabs, 
   TabsList, 
@@ -118,4 +161,7 @@ export {
   UnderlineTabs,
   UnderlineTabsList,
   UnderlineTabsTrigger,
+  BoldTabs,
+  BoldTabsList,
+  BoldTabsTrigger,
 }

@@ -64,19 +64,19 @@ const buttonVariants = cva(
         /** Small - 보조 버튼, 칩 스타일 (28px) */
         sm: "h-7 px-2.5 rounded-md text-[12px] [&_svg:not([class*='size-'])]:size-3.5",
         
-        /** Default - 기본 버튼 (36px) */
-        default: "h-9 px-4 rounded-lg text-[14px]",
+        /** Default - 기본 버튼 (40px) - Input/Select와 통일 */
+        default: "h-10 px-4 rounded-lg text-[14px]",
         
         /** Large - 주요 CTA, Dialog 버튼 (44px) */
-        lg: "h-11 px-5 rounded-xl text-[15px]",
+        lg: "h-11 px-5 rounded-lg text-[15px]",
         
         /** Extra Large - Dialog/하단 고정 CTA (48px) */
-        xl: "h-12 px-6 rounded-xl text-[16px]",
+        xl: "h-12 px-6 rounded-lg text-[16px]",
         
         /** 아이콘 버튼들 */
-        icon: "size-9 rounded-lg",
+        icon: "size-10 rounded-lg",
         "icon-sm": "size-7 rounded-md",
-        "icon-lg": "size-11 rounded-xl",
+        "icon-lg": "size-11 rounded-lg",
       },
       fullWidth: {
         true: "w-full",

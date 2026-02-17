@@ -155,7 +155,18 @@ export {
   UnderlineTabs,
   UnderlineTabsList,
   UnderlineTabsTrigger,
+  BoldTabs,
+  BoldTabsList,
+  BoldTabsTrigger,
 } from "./tabs"
+
+// Pagination
+export { Pagination, SimplePagination } from "./pagination"
+export type { PaginationProps, SimplePaginationProps } from "./pagination"
+
+// Segmented Control
+export { SegmentedControl, IconSegmentedControl } from "./segmented-control"
+export type { SegmentedControlProps, SegmentOption, IconSegmentedControlProps } from "./segmented-control"
 
 // List Item
 export { ListItem, ListItemCompact, SimpleListItem, List } from "./list-item"

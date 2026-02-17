@@ -19,8 +19,8 @@ const SelectTrigger = React.forwardRef<
     data-slot="select-trigger"
     className={cn(
       // 토스 스타일 Select Trigger
-      "flex h-12 w-full items-center justify-between gap-2",
-      "px-4 rounded-xl bg-muted",
+      "flex h-10 w-full items-center justify-between gap-2",
+      "px-4 rounded-lg bg-muted",
       "text-[15px] text-foreground placeholder:text-muted-foreground",
       "transition-all duration-150",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:bg-background",
@@ -83,7 +83,7 @@ const SelectContent = React.forwardRef<
       className={cn(
         // 토스 스타일 Select Content
         "relative z-50 max-h-80 min-w-[8rem] overflow-hidden",
-        "rounded-2xl bg-card text-foreground",
+        "rounded-xl bg-card text-foreground",
         "shadow-lg border border-border",
         // 애니메이션
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
@@ -137,7 +137,7 @@ const SelectItem = React.forwardRef<
     className={cn(
       // 토스 스타일 Select Item
       "relative flex w-full cursor-pointer select-none items-center",
-      "py-3 px-3 rounded-xl",
+      "py-2.5 px-3 rounded-lg",
       "text-[15px] text-foreground",
       "outline-none transition-colors",
       "focus:bg-muted",
