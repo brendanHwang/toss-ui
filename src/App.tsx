@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { Menu, Plus, Send, Share, Trash2, Copy, Sun, Moon } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
+import { 
+  TossIcon, 
+  TossBankIcon, 
+  KBBankIcon, 
+  ShinhanBankIcon, 
+  KakaoBankIcon,
+  TossSecuritiesIcon,
+  NHBankIcon,
+} from "@/components/ui/icons";
 
 /* ========== Filled Icons for Navigation (토스 스타일) ========== */
 const HomeIcon = ({ filled = false, className = "" }: { filled?: boolean; className?: string }) => (
@@ -252,7 +261,7 @@ function App() {
               <Drawer>
                 <DrawerTrigger asChild>
                   <button className="size-10 flex items-center justify-center rounded-xl hover:bg-muted transition-colors">
-                    <Menu className="size-6 text-foreground" />
+                    <TossIcon.Menu className="size-6 text-foreground" />
                   </button>
                 </DrawerTrigger>
                 <DrawerContent>
@@ -736,17 +745,17 @@ function App() {
                     <ActionSheetTitle>공유하기</ActionSheetTitle>
                     <ActionSheetItem>
                       <span className="flex items-center justify-center gap-2">
-                        <Share className="size-5" /> 공유
+                        <TossIcon.Share className="size-5" /> 공유
                       </span>
                     </ActionSheetItem>
                     <ActionSheetItem>
                       <span className="flex items-center justify-center gap-2">
-                        <Copy className="size-5" /> 복사
+                        <TossIcon.Copy className="size-5" /> 복사
                       </span>
                     </ActionSheetItem>
                     <ActionSheetItem destructive>
                       <span className="flex items-center justify-center gap-2">
-                        <Trash2 className="size-5" /> 삭제
+                        <TossIcon.Trash className="size-5" /> 삭제
                       </span>
                     </ActionSheetItem>
                   </ActionSheetGroup>
@@ -858,58 +867,39 @@ function App() {
 
           {/* ========== ASSET ITEM (계좌/자산 리스트) ========== */}
           <Section title="Asset Item">
-            <Card className="card-toss px-4 py-2">
+            <Card className="card-toss px-3 py-1">
               <AssetList>
                 <AssetItem
-                  icon={
-                    <svg className="size-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                  }
-                  iconBg="#3182F6"
+                  icon={<TossSecuritiesIcon className="size-full" />}
+                  iconBg="transparent"
                   amount="51,788,056원"
                   label="토스증권 기본계좌"
                   action={
-                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-lg hover:bg-muted/80 transition-colors">
+                    <button className="px-3 py-1 text-[12px] font-medium text-muted-foreground bg-muted rounded-md hover:bg-muted/80 transition-colors">
                       송금
                     </button>
                   }
                 />
                 <AssetItem
-                  icon={
-                    <svg className="size-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3 21h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18V7H3v2zm0-6v2h18V3H3z"/>
-                    </svg>
-                  }
-                  iconBg="#3182F6"
+                  icon={<TossBankIcon className="size-full" />}
+                  iconBg="transparent"
                   amount="821,145원"
                   label="토스뱅크 통장"
                   action={
-                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-lg hover:bg-muted/80 transition-colors">
+                    <button className="px-3 py-1 text-[12px] font-medium text-muted-foreground bg-muted rounded-md hover:bg-muted/80 transition-colors">
                       송금
                     </button>
                   }
                 />
                 <AssetItem
-                  icon={
-                    <svg className="size-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <circle cx="12" cy="12" r="10"/>
-                      <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#30C85E">$</text>
-                    </svg>
-                  }
-                  iconBg="#30C85E"
+                  icon={<NHBankIcon className="size-full" />}
+                  iconBg="transparent"
                   amount="14,431,094원"
                   label="중개형ISA"
                 />
                 <AssetItem
-                  icon={
-                    <svg className="size-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <rect x="4" y="14" width="4" height="6"/>
-                      <rect x="10" y="10" width="4" height="10"/>
-                      <rect x="16" y="6" width="4" height="14"/>
-                    </svg>
-                  }
-                  iconBg="#FF6B6B"
+                  icon={<TossSecuritiesIcon className="size-full" />}
+                  iconBg="transparent"
                   amount="66,218,836원"
                   change="+5.6%"
                   changeType="positive"
@@ -965,39 +955,23 @@ function App() {
             <Card className="card-toss p-2">
               <List gap="none">
                 <ListItemCompact
-                  icon={
-                    <svg className="size-4" viewBox="0 0 24 24" fill="#3182F6">
-                      <rect x="3" y="6" width="18" height="12" rx="2"/>
-                    </svg>
-                  }
+                  icon={<TossBankIcon className="size-5" />}
                   title="토스뱅크"
                   subtitle="1234-56-7890123"
                   selected
                 />
                 <ListItemCompact
-                  icon={
-                    <svg className="size-4" viewBox="0 0 24 24" fill="#FFB800">
-                      <circle cx="12" cy="12" r="8"/>
-                    </svg>
-                  }
+                  icon={<KBBankIcon className="size-5" />}
                   title="국민은행"
                   subtitle="123-45-678901"
                 />
                 <ListItemCompact
-                  icon={
-                    <svg className="size-4" viewBox="0 0 24 24" fill="#0046FF">
-                      <circle cx="12" cy="12" r="8"/>
-                    </svg>
-                  }
+                  icon={<ShinhanBankIcon className="size-5" />}
                   title="신한은행"
                   subtitle="110-123-456789"
                 />
                 <ListItemCompact
-                  icon={
-                    <svg className="size-4" viewBox="0 0 24 24" fill="#FFCD00">
-                      <circle cx="12" cy="12" r="8"/>
-                    </svg>
-                  }
+                  icon={<KakaoBankIcon className="size-5" />}
                   title="카카오뱅크"
                   subtitle="3333-12-3456789"
                 />
@@ -1042,7 +1016,7 @@ function App() {
                 <p className="toss-display">1,234,567원</p>
                 <div className="flex gap-3 mt-6">
                   <Button className="flex-1" size="xl">
-                    <Send className="size-5" /> 송금
+                    <TossIcon.Send className="size-5" /> 송금
                   </Button>
                   <Button variant="secondary" className="flex-1" size="xl">
                     충전
@@ -1097,7 +1071,7 @@ function App() {
 
         {/* FAB */}
         <FABContainer>
-          <FAB icon={<Plus className="size-6" />} />
+          <FAB icon={<TossIcon.Plus className="size-6" />} />
         </FABContainer>
 
         {/* 하단 네비게이션 - 토스 스타일 탭바 (Filled Icons) */}
