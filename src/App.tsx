@@ -37,12 +37,17 @@ const GiftIcon = ({ filled = false, className = "" }: { filled?: boolean; classN
 const ChartIcon = ({ filled = false, className = "" }: { filled?: boolean; className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     {filled ? (
-      <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4V12L17 17" fill="currentColor"/>
+      <>
+        {/* Filled 파이 차트 */}
+        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" fill="currentColor" fillOpacity="0.2"/>
+        <path d="M12 2V12L19.07 4.93C17.16 3.11 14.7 2 12 2Z" fill="currentColor"/>
+        <path d="M12 12L19.07 4.93C20.89 6.84 22 9.3 22 12H12Z" fill="currentColor"/>
+      </>
     ) : (
       <>
         <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8"/>
-        <path d="M12 12V5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-        <path d="M12 12L17.5 17.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M12 3V12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M12 12L18.36 5.64" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
       </>
     )}
   </svg>
