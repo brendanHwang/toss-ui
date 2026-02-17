@@ -962,26 +962,42 @@ function App() {
 
             {/* 컴팩트 리스트 아이템 (계좌 선택) */}
             <p className="toss-caption2 text-muted-foreground mb-2 mt-6">Compact (계좌 선택)</p>
-            <Card className="card-toss p-3">
-              <List gap="xs">
+            <Card className="card-toss p-2">
+              <List gap="none">
                 <ListItemCompact
-                  icon={<span className="text-lg">🏦</span>}
+                  icon={
+                    <svg className="size-4" viewBox="0 0 24 24" fill="#3182F6">
+                      <rect x="3" y="6" width="18" height="12" rx="2"/>
+                    </svg>
+                  }
                   title="토스뱅크"
                   subtitle="1234-56-7890123"
                   selected
                 />
                 <ListItemCompact
-                  icon={<span className="text-lg">🏛️</span>}
+                  icon={
+                    <svg className="size-4" viewBox="0 0 24 24" fill="#FFB800">
+                      <circle cx="12" cy="12" r="8"/>
+                    </svg>
+                  }
                   title="국민은행"
                   subtitle="123-45-678901"
                 />
                 <ListItemCompact
-                  icon={<span className="text-lg">🔵</span>}
+                  icon={
+                    <svg className="size-4" viewBox="0 0 24 24" fill="#0046FF">
+                      <circle cx="12" cy="12" r="8"/>
+                    </svg>
+                  }
                   title="신한은행"
                   subtitle="110-123-456789"
                 />
                 <ListItemCompact
-                  icon={<span className="text-lg">🟢</span>}
+                  icon={
+                    <svg className="size-4" viewBox="0 0 24 24" fill="#FFCD00">
+                      <circle cx="12" cy="12" r="8"/>
+                    </svg>
+                  }
                   title="카카오뱅크"
                   subtitle="3333-12-3456789"
                 />

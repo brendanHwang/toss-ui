@@ -200,8 +200,8 @@ const ListItemCompact = React.forwardRef<HTMLDivElement, ListItemCompactProps>(
             : undefined
         }
         className={cn(
-          // 토스 계좌 선택 스타일
-          "flex items-center gap-4 px-4 py-4",
+          // 토스 계좌 선택 스타일 - 컴팩트
+          "flex items-center gap-3 px-3 py-2.5",
           "transition-all duration-150",
           clickable && !disabled && [
             "cursor-pointer",
@@ -210,26 +210,26 @@ const ListItemCompact = React.forwardRef<HTMLDivElement, ListItemCompactProps>(
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
           ],
           // 선택 시 연한 파란 배경 + 둥근 모서리
-          selected && "bg-secondary rounded-xl",
+          selected && "bg-secondary rounded-lg",
           disabled && "opacity-40 cursor-not-allowed",
           className
         )}
         {...props}
       >
-        {/* Icon (은행 로고 등) - 40px 원형 */}
+        {/* Icon (은행 로고 등) - 32px 원형 */}
         {icon && (
-          <div className="shrink-0 size-10 rounded-full bg-muted flex items-center justify-center overflow-hidden">
+          <div className="shrink-0 size-8 rounded-full bg-muted flex items-center justify-center overflow-hidden">
             {icon}
           </div>
         )}
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <p className="text-[15px] font-semibold text-foreground truncate">
+          <p className="text-[14px] font-medium text-foreground truncate">
             {title}
           </p>
           {subtitle && (
-            <p className="text-[13px] text-muted-foreground truncate mt-0.5">
+            <p className="text-[12px] text-muted-foreground truncate">
               {subtitle}
             </p>
           )}
@@ -237,7 +237,7 @@ const ListItemCompact = React.forwardRef<HTMLDivElement, ListItemCompactProps>(
 
         {/* Selected Check */}
         {selected && (
-          <Check className="size-6 text-primary shrink-0" />
+          <Check className="size-5 text-primary shrink-0" />
         )}
       </div>
     )
