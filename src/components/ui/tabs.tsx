@@ -13,8 +13,8 @@ const TabsList = React.forwardRef<
     ref={ref}
     data-slot="tabs-list"
     className={cn(
-      // 토스 스타일 Tabs List
-      "inline-flex items-center gap-1 p-1 rounded-xl bg-muted",
+      // 토스 스타일 Tabs List - 컴팩트
+      "inline-flex items-center gap-0.5 p-0.5 rounded-lg bg-muted",
       className
     )}
     {...props}
@@ -30,10 +30,10 @@ const TabsTrigger = React.forwardRef<
     ref={ref}
     data-slot="tabs-trigger"
     className={cn(
-      // 토스 스타일 Tabs Trigger
+      // 토스 스타일 Tabs Trigger - 컴팩트
       "inline-flex items-center justify-center whitespace-nowrap",
-      "px-4 py-2 rounded-lg",
-      "text-[14px] font-semibold text-muted-foreground",
+      "px-3 py-1.5 rounded-md",
+      "text-[13px] font-semibold text-muted-foreground",
       "transition-all duration-150",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
       "disabled:pointer-events-none disabled:opacity-40",
@@ -91,9 +91,9 @@ const UnderlineTabsTrigger = React.forwardRef<
     ref={ref}
     data-slot="underline-tabs-trigger"
     className={cn(
-      // 토스 스타일 밑줄 Tabs Trigger
-      "relative flex-1 py-3",
-      "text-[15px] font-semibold text-muted-foreground",
+      // 토스 스타일 밑줄 Tabs Trigger - 컴팩트
+      "relative flex-1 py-2",
+      "text-[13px] font-semibold text-muted-foreground",
       "transition-colors",
       "focus-visible:outline-none",
       "disabled:pointer-events-none disabled:opacity-40",
