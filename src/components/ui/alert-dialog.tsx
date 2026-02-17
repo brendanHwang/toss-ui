@@ -132,20 +132,20 @@ const AlertDialogDescription = React.forwardRef<
 ))
 AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName
 
-/** Alert Action 버튼 - 토스: lg 사이즈 (44px) */
+/** Alert Action 버튼 - 모바일 Dialog용 xl 사이즈 (48px) */
 const AlertDialogAction = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Action
     ref={ref}
-    className={cn(buttonVariants({ size: "lg" }), "flex-1", className)}
+    className={cn(buttonVariants({ size: "xl" }), "flex-1", className)}
     {...props}
   />
 ))
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName
 
-/** Alert Cancel 버튼 - 토스: lg 사이즈 (44px), outline */
+/** Alert Cancel 버튼 - 모바일 Dialog용 xl 사이즈 (48px), outline */
 const AlertDialogCancel = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Cancel>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel>
@@ -153,7 +153,7 @@ const AlertDialogCancel = React.forwardRef<
   <AlertDialogPrimitive.Cancel
     ref={ref}
     className={cn(
-      buttonVariants({ variant: "outline", size: "lg" }),
+      buttonVariants({ variant: "outline", size: "xl" }),
       "flex-1",
       className
     )}
