@@ -65,14 +65,14 @@ const RadioCard = React.forwardRef<
       data-slot="radio-card"
       className={cn(
         // 토스 스타일 카드형 라디오
-        "group flex items-center gap-4 p-4 rounded-2xl bg-card",
+        "group flex items-center gap-3 p-3 rounded-xl bg-card",
         "border-2 border-transparent",
         "transition-all duration-150 cursor-pointer",
         "hover:bg-muted/50",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
         "disabled:cursor-not-allowed disabled:opacity-40",
-        // 선택됨
-        "data-[state=checked]:border-primary data-[state=checked]:bg-[#E8F3FF]/50",
+        // 선택됨 - 다크모드 지원
+        "data-[state=checked]:border-primary data-[state=checked]:bg-secondary",
         className
       )}
       {...props}

@@ -870,7 +870,7 @@ function App() {
                   amount="51,788,056원"
                   label="토스증권 기본계좌"
                   action={
-                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-full hover:bg-muted/80 transition-colors">
+                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-lg hover:bg-muted/80 transition-colors">
                       송금
                     </button>
                   }
@@ -885,7 +885,7 @@ function App() {
                   amount="821,145원"
                   label="토스뱅크 통장"
                   action={
-                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-full hover:bg-muted/80 transition-colors">
+                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-lg hover:bg-muted/80 transition-colors">
                       송금
                     </button>
                   }
