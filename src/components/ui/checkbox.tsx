@@ -38,7 +38,7 @@ const Checkbox = React.forwardRef<
 ))
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
 
-// CheckboxWithLabel - 라벨과 함께 사용
+// CheckboxWithLabel - 전체 영역 클릭 가능
 export interface CheckboxWithLabelProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
   label: string
@@ -53,20 +53,24 @@ const CheckboxWithLabel = React.forwardRef<
   const checkboxId = id || generatedId
 
   return (
-    <div className="flex items-start gap-3">
+    <label
+      htmlFor={checkboxId}
+      className={cn(
+        "flex items-start gap-3 p-3 -m-3 rounded-xl cursor-pointer",
+        "transition-colors hover:bg-muted/30",
+        props.disabled && "cursor-not-allowed opacity-40"
+      )}
+    >
       <Checkbox ref={ref} id={checkboxId} className={className} {...props} />
-      <div className="flex flex-col gap-0.5">
-        <label
-          htmlFor={checkboxId}
-          className="text-[15px] font-medium text-foreground cursor-pointer select-none leading-6"
-        >
+      <div className="flex flex-col gap-0.5 select-none">
+        <span className="text-[15px] font-medium text-foreground leading-6">
           {label}
-        </label>
+        </span>
         {description && (
-          <p className="text-[13px] text-muted-foreground">{description}</p>
+          <span className="text-[13px] text-muted-foreground">{description}</span>
         )}
       </div>
-    </div>
+    </label>
   )
 })
 CheckboxWithLabel.displayName = "CheckboxWithLabel"

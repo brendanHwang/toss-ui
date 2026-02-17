@@ -201,7 +201,7 @@ const ListItemCompact = React.forwardRef<HTMLDivElement, ListItemCompactProps>(
         }
         className={cn(
           // 토스 계좌 선택 스타일 - 컴팩트
-          "flex items-center gap-3 px-3 py-2.5",
+          "flex items-center gap-3 px-3 py-2.5 rounded-lg",
           "transition-all duration-150",
           clickable && !disabled && [
             "cursor-pointer",
@@ -209,8 +209,8 @@ const ListItemCompact = React.forwardRef<HTMLDivElement, ListItemCompactProps>(
             "active:scale-[0.99]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
           ],
-          // 선택 시 연한 파란 배경 + 둥근 모서리
-          selected && "bg-secondary rounded-lg",
+          // 선택 시 연한 파란 배경
+          selected && "bg-secondary",
           disabled && "opacity-40 cursor-not-allowed",
           className
         )}
@@ -244,6 +244,117 @@ const ListItemCompact = React.forwardRef<HTMLDivElement, ListItemCompactProps>(
   }
 )
 ListItemCompact.displayName = "ListItemCompact"
+
+/* ========== SimpleListItem (1줄 - 설정/메뉴) ========== */
+
+export interface SimpleListItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** 왼쪽 아이콘 */
+  icon?: React.ReactNode
+  /** 텍스트 */
+  label: string
+  /** 오른쪽 값 텍스트 */
+  value?: string
+  /** 오른쪽 커스텀 요소 (Switch 등) */
+  trailing?: React.ReactNode
+  /** 화살표 표시 여부 */
+  showArrow?: boolean
+  /** 클릭 가능 여부 */
+  clickable?: boolean
+  /** 비활성화 */
+  disabled?: boolean
+  /** 위험 액션 (빨간색) */
+  destructive?: boolean
+}
+
+const SimpleListItem = React.forwardRef<HTMLDivElement, SimpleListItemProps>(
+  (
+    {
+      className,
+      icon,
+      label,
+      value,
+      trailing,
+      showArrow = true,
+      clickable = true,
+      disabled = false,
+      destructive = false,
+      onClick,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <div
+        ref={ref}
+        role={clickable ? "button" : undefined}
+        tabIndex={clickable && !disabled ? 0 : undefined}
+        data-slot="simple-list-item"
+        data-disabled={disabled || undefined}
+        onClick={disabled ? undefined : onClick}
+        onKeyDown={
+          clickable && !disabled
+            ? (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault()
+                  onClick?.(e as any)
+                }
+              }
+            : undefined
+        }
+        className={cn(
+          // 1줄 메뉴/설정 아이템
+          "flex items-center gap-3 px-4 py-3 rounded-lg",
+          "transition-all duration-150",
+          clickable && !disabled && [
+            "cursor-pointer",
+            "hover:bg-muted/30",
+            "active:scale-[0.99]",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+          ],
+          disabled && "opacity-40 cursor-not-allowed",
+          className
+        )}
+        {...props}
+      >
+        {/* Icon */}
+        {icon && (
+          <div className={cn(
+            "shrink-0 size-5",
+            destructive ? "text-destructive" : "text-muted-foreground"
+          )}>
+            {icon}
+          </div>
+        )}
+
+        {/* Label */}
+        <span className={cn(
+          "flex-1 text-[15px]",
+          destructive ? "text-destructive" : "text-foreground"
+        )}>
+          {label}
+        </span>
+
+        {/* Value */}
+        {value && (
+          <span className="text-[14px] text-muted-foreground shrink-0">
+            {value}
+          </span>
+        )}
+
+        {/* Trailing (Switch 등) */}
+        {trailing && (
+          <div className="shrink-0">{trailing}</div>
+        )}
+
+        {/* Arrow */}
+        {showArrow && clickable && !trailing && (
+          <ChevronRight className="size-5 text-muted-foreground/50 shrink-0" />
+        )}
+      </div>
+    )
+  }
+)
+SimpleListItem.displayName = "SimpleListItem"
 
 /* ========== List 컨테이너 ========== */
 
@@ -282,4 +393,4 @@ const List = React.forwardRef<HTMLDivElement, ListProps>(
 )
 List.displayName = "List"
 
-export { ListItem, ListItemCompact, List }
+export { ListItem, ListItemCompact, SimpleListItem, List }

@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import { 
   TossIcon, 
+  BankIcon,
   TossBankIcon, 
   KBBankIcon, 
   ShinhanBankIcon, 
   KakaoBankIcon,
   TossSecuritiesIcon,
   NHBankIcon,
+  WooriBankIcon,
+  HanaBankIcon,
 } from "@/components/ui/icons";
 
 /* ========== Filled Icons for Navigation (토스 스타일) ========== */
@@ -336,6 +339,112 @@ function App() {
               <p className="toss-body2">Body 2 - 15px Regular</p>
               <p className="toss-caption1">Caption 1 - 13px Regular</p>
               <p className="toss-caption2">Caption 2 - 11px Regular</p>
+            </Card>
+          </Section>
+
+          {/* ========== ICONS ========== */}
+          <Section title="Icons">
+            <Card className="card-toss p-6 space-y-6">
+              {/* Navigation - filled/outline 둘 다 */}
+              <div className="space-y-3">
+                <p className="toss-caption2 text-muted-foreground">Navigation (outline / filled)</p>
+                <div className="grid grid-cols-6 gap-4">
+                  {[
+                    { Icon: TossIcon.Home, name: "Home" },
+                    { Icon: TossIcon.Gift, name: "Gift" },
+                    { Icon: TossIcon.Chart, name: "Chart" },
+                    { Icon: TossIcon.Grid, name: "Grid" },
+                    { Icon: TossIcon.Bell, name: "Bell" },
+                    { Icon: TossIcon.Wallet, name: "Wallet" },
+                  ].map(({ Icon, name }) => (
+                    <div key={name} className="flex flex-col items-center gap-1.5">
+                      <div className="flex gap-1.5">
+                        <Icon className="size-5 text-foreground" />
+                        <Icon className="size-5 text-foreground" filled />
+                      </div>
+                      <span className="toss-caption2 text-muted-foreground">{name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Icons */}
+              <div className="space-y-3">
+                <p className="toss-caption2 text-muted-foreground">Action</p>
+                <div className="grid grid-cols-5 gap-4">
+                  {[
+                    { Icon: TossIcon.Send, name: "Send" },
+                    { Icon: TossIcon.Plus, name: "Plus" },
+                    { Icon: TossIcon.Menu, name: "Menu" },
+                    { Icon: TossIcon.Close, name: "Close" },
+                    { Icon: TossIcon.Check, name: "Check" },
+                    { Icon: TossIcon.Search, name: "Search" },
+                    { Icon: TossIcon.Settings, name: "Settings" },
+                    { Icon: TossIcon.Share, name: "Share" },
+                    { Icon: TossIcon.Copy, name: "Copy" },
+                    { Icon: TossIcon.Trash, name: "Trash" },
+                  ].map(({ Icon, name }) => (
+                    <div key={name} className="flex flex-col items-center gap-1.5">
+                      <Icon className="size-5 text-foreground" />
+                      <span className="toss-caption2 text-muted-foreground">{name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Chevron & Misc */}
+              <div className="space-y-3">
+                <p className="toss-caption2 text-muted-foreground">Chevron & Misc</p>
+                <div className="grid grid-cols-6 gap-4">
+                  {[
+                    { Icon: TossIcon.ChevronLeft, name: "Left" },
+                    { Icon: TossIcon.ChevronRight, name: "Right" },
+                    { Icon: TossIcon.ChevronDown, name: "Down" },
+                    { Icon: TossIcon.CreditCard, name: "Card" },
+                    { Icon: TossIcon.Receipt, name: "Receipt" },
+                    { Icon: TossIcon.QRCode, name: "QR" },
+                  ].map(({ Icon, name }) => (
+                    <div key={name} className="flex flex-col items-center gap-1.5">
+                      <Icon className="size-5 text-foreground" />
+                      <span className="toss-caption2 text-muted-foreground">{name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bank Icons */}
+              <div className="space-y-3">
+                <p className="toss-caption2 text-muted-foreground">Bank</p>
+                <div className="grid grid-cols-4 gap-4">
+                  {[
+                    { Icon: TossBankIcon, name: "토스뱅크" },
+                    { Icon: TossSecuritiesIcon, name: "토스증권" },
+                    { Icon: KBBankIcon, name: "국민" },
+                    { Icon: ShinhanBankIcon, name: "신한" },
+                    { Icon: KakaoBankIcon, name: "카카오" },
+                    { Icon: WooriBankIcon, name: "우리" },
+                    { Icon: HanaBankIcon, name: "하나" },
+                    { Icon: NHBankIcon, name: "농협" },
+                  ].map(({ Icon, name }) => (
+                    <div key={name} className="flex flex-col items-center gap-1.5">
+                      <Icon className="size-6" />
+                      <span className="toss-caption2 text-muted-foreground">{name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Usage Example */}
+              <div className="pt-2 border-t border-border">
+                <p className="toss-caption2 text-muted-foreground mb-2">Usage</p>
+                <pre className="toss-caption2 bg-muted p-3 rounded-lg overflow-x-auto">
+{`import { TossIcon, TossBankIcon } from "@/components/ui/icons"
+
+<TossIcon.Home className="size-6" />
+<TossIcon.Home className="size-6" filled />
+<TossBankIcon className="size-5" />`}
+                </pre>
+              </div>
             </Card>
           </Section>
 

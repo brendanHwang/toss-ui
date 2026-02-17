@@ -27,7 +27,7 @@ const RadioGroupItem = React.forwardRef<
       ref={ref}
       data-slot="radio-group-item"
       className={cn(
-        // 토스 스타일 Radio - 24px 크기
+        // 토스 스타일 Radio - 22px 크기
         "aspect-square size-[22px] shrink-0 rounded-full",
         "border-2 border-[#D1D6DB]",
         "transition-all duration-150",
@@ -40,7 +40,6 @@ const RadioGroupItem = React.forwardRef<
       {...props}
     >
       <RadioGroupPrimitive.Indicator className="flex items-center justify-center size-full">
-        {/* 내부 채워진 원 */}
         <div className="size-3 rounded-full bg-primary" />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
@@ -48,7 +47,57 @@ const RadioGroupItem = React.forwardRef<
 })
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
-// RadioCard - 토스 스타일 카드형 라디오
+// RadioWithLabel - 전체 영역 클릭 가능
+export interface RadioWithLabelProps
+  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
+  label: string
+  description?: string
+}
+
+const RadioWithLabel = React.forwardRef<
+  React.ComponentRef<typeof RadioGroupPrimitive.Item>,
+  RadioWithLabelProps
+>(({ className, label, description, ...props }, ref) => {
+  return (
+    <label
+      className={cn(
+        "flex items-start gap-3 p-3 -m-3 rounded-xl cursor-pointer",
+        "transition-colors hover:bg-muted/30",
+        props.disabled && "cursor-not-allowed opacity-40"
+      )}
+    >
+      <RadioGroupPrimitive.Item
+        ref={ref}
+        data-slot="radio-with-label"
+        className={cn(
+          "aspect-square size-[22px] shrink-0 rounded-full mt-0.5",
+          "border-2 border-[#D1D6DB]",
+          "transition-all duration-150",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
+          "disabled:cursor-not-allowed disabled:opacity-40",
+          "data-[state=checked]:border-primary",
+          className
+        )}
+        {...props}
+      >
+        <RadioGroupPrimitive.Indicator className="flex items-center justify-center size-full">
+          <div className="size-3 rounded-full bg-primary" />
+        </RadioGroupPrimitive.Indicator>
+      </RadioGroupPrimitive.Item>
+      <div className="flex flex-col gap-0.5 select-none">
+        <span className="text-[15px] font-medium text-foreground leading-6">
+          {label}
+        </span>
+        {description && (
+          <span className="text-[13px] text-muted-foreground">{description}</span>
+        )}
+      </div>
+    </label>
+  )
+})
+RadioWithLabel.displayName = "RadioWithLabel"
+
+// RadioCard - 토스 스타일 카드형 라디오 (전체 영역 클릭)
 export interface RadioCardProps
   extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
   label: string
@@ -90,11 +139,9 @@ const RadioCard = React.forwardRef<
           "size-[22px] shrink-0 rounded-full border-2 border-[#D1D6DB]",
           "flex items-center justify-center",
           "transition-all duration-150",
-          // 선택됨 상태
           "group-data-[state=checked]:border-primary"
         )}
       >
-        {/* 내부 원 - 선택 시에만 표시 */}
         <div className="size-3 rounded-full bg-primary scale-0 transition-transform duration-150 group-data-[state=checked]:scale-100" />
       </div>
     </RadioGroupPrimitive.Item>
@@ -102,4 +149,4 @@ const RadioCard = React.forwardRef<
 })
 RadioCard.displayName = "RadioCard"
 
-export { RadioGroup, RadioGroupItem, RadioCard }
+export { RadioGroup, RadioGroupItem, RadioWithLabel, RadioCard }
