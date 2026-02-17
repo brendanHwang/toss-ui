@@ -1,5 +1,72 @@
 import { useState } from "react";
-import { Menu, Plus, Send, Share, Trash2, Copy, Home, Gift, PieChart, LayoutGrid } from "lucide-react";
+import { Menu, Plus, Send, Share, Trash2, Copy, Sun, Moon } from "lucide-react";
+
+/* ========== Filled Icons for Navigation (토스 스타일) ========== */
+const HomeIcon = ({ filled = false, className = "" }: { filled?: boolean; className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {filled ? (
+      <path d="M3 10.5L12 3L21 10.5V20C21 20.5523 20.5523 21 20 21H15V14H9V21H4C3.44772 21 3 20.5523 3 20V10.5Z" fill="currentColor"/>
+    ) : (
+      <path d="M3 10.5L12 3L21 10.5V20C21 20.5523 20.5523 21 20 21H15V14H9V21H4C3.44772 21 3 20.5523 3 20V10.5Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+    )}
+  </svg>
+);
+
+const GiftIcon = ({ filled = false, className = "" }: { filled?: boolean; className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {filled ? (
+      <>
+        <rect x="3" y="8" width="18" height="4" rx="1" fill="currentColor"/>
+        <path d="M5 12H19V20C19 20.5523 18.5523 21 18 21H6C5.44772 21 5 20.5523 5 20V12Z" fill="currentColor"/>
+        <path d="M12 8C12 8 12 5 9.5 5C7 5 7 8 9.5 8H12Z" fill="currentColor"/>
+        <path d="M12 8C12 8 12 5 14.5 5C17 5 17 8 14.5 8H12Z" fill="currentColor"/>
+        <rect x="11" y="8" width="2" height="13" fill="currentColor" opacity="0.3"/>
+      </>
+    ) : (
+      <>
+        <rect x="3" y="8" width="18" height="4" rx="1" stroke="currentColor" strokeWidth="1.8"/>
+        <path d="M5 12V20C5 20.5523 5.44772 21 6 21H18C18.5523 21 19 20.5523 19 20V12" stroke="currentColor" strokeWidth="1.8"/>
+        <path d="M12 8V21" stroke="currentColor" strokeWidth="1.8"/>
+        <path d="M12 8C12 8 12 4 9 4C6 4 6 8 9 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M12 8C12 8 12 4 15 4C18 4 18 8 15 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+      </>
+    )}
+  </svg>
+);
+
+const ChartIcon = ({ filled = false, className = "" }: { filled?: boolean; className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {filled ? (
+      <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 4V12L17 17" fill="currentColor"/>
+    ) : (
+      <>
+        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8"/>
+        <path d="M12 12V5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M12 12L17.5 17.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+      </>
+    )}
+  </svg>
+);
+
+const GridIcon = ({ filled = false, className = "" }: { filled?: boolean; className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {filled ? (
+      <>
+        <rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"/>
+        <rect x="13" y="3" width="8" height="8" rx="2" fill="currentColor"/>
+        <rect x="3" y="13" width="8" height="8" rx="2" fill="currentColor"/>
+        <rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor"/>
+      </>
+    ) : (
+      <>
+        <rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.8"/>
+        <rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.8"/>
+        <rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.8"/>
+        <rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.8"/>
+      </>
+    )}
+  </svg>
+);
 
 // UI Components
 import { Button } from "@/components/ui/button";
@@ -85,7 +152,7 @@ import {
   UnderlineTabsList,
   UnderlineTabsTrigger,
 } from "@/components/ui/tabs";
-import { ListItem, List } from "@/components/ui/list-item";
+import { ListItem, ListItemCompact, List } from "@/components/ui/list-item";
 import { Divider, Spacer } from "@/components/ui/divider";
 import {
   Skeleton,
@@ -171,66 +238,73 @@ function App() {
   return (
     <ToastProvider>
       <main className="min-h-screen bg-background pb-32">
-        {/* 헤더 */}
-        <header className="sticky top-0 z-50 bg-card/80 toss-blur border-b border-border">
-          <div className="max-w-2xl mx-auto px-5 py-4 flex items-center justify-between">
-            {/* Drawer Trigger */}
-            <Drawer>
-              <DrawerTrigger asChild>
-                <Button size="icon-sm" variant="ghost">
-                  <Menu className="size-5" />
-                </Button>
-              </DrawerTrigger>
-              <DrawerContent>
-                <DrawerHeader>
-                  <DrawerTitle>메뉴</DrawerTitle>
-                  <DrawerCloseButton />
-                </DrawerHeader>
-                <DrawerBody>
-                  <div className="space-y-1">
-                    <DrawerMenuItem
-                      icon={<Home className="size-5" />}
-                      label="홈"
-                      active={activeNav === "home"}
-                      onClick={() => setActiveNav("home")}
-                    />
-                    <DrawerMenuItem
-                      icon={<Gift className="size-5" />}
-                      label="혜택"
-                      badge="NEW"
-                      onClick={() => setActiveNav("benefit")}
-                    />
-                    <DrawerMenuItem
-                      icon={<PieChart className="size-5" />}
-                      label="내 소비"
-                      onClick={() => setActiveNav("spend")}
-                    />
-                    <DrawerMenuItem
-                      icon={<LayoutGrid className="size-5" />}
-                      label="전체"
-                      onClick={() => setActiveNav("all")}
-                    />
-                  </div>
-                  <Divider className="my-4" />
-                  <div className="space-y-1">
-                    <DrawerMenuItem label="설정" />
-                    <DrawerMenuItem label="고객센터" />
-                  </div>
-                </DrawerBody>
-              </DrawerContent>
-            </Drawer>
-
-            <div className="text-center">
-              <h1 className="toss-headline">TDS 토스 디자인 시스템</h1>
+        {/* 헤더 - 토스 스타일 AppBar */}
+        <header className="sticky top-0 z-50 bg-card toss-blur border-b border-border">
+          <div className="max-w-2xl mx-auto h-14 px-4 flex items-center justify-between">
+            {/* Left - Drawer */}
+            <div className="w-10">
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <button className="size-10 flex items-center justify-center rounded-xl hover:bg-muted transition-colors">
+                    <Menu className="size-6 text-foreground" />
+                  </button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>메뉴</DrawerTitle>
+                    <DrawerCloseButton />
+                  </DrawerHeader>
+                  <DrawerBody>
+                    <div className="space-y-1">
+                      <DrawerMenuItem
+                        icon={<HomeIcon className="size-5" />}
+                        label="홈"
+                        active={activeNav === "home"}
+                        onClick={() => setActiveNav("home")}
+                      />
+                      <DrawerMenuItem
+                        icon={<GiftIcon className="size-5" />}
+                        label="혜택"
+                        badge="NEW"
+                        onClick={() => setActiveNav("benefit")}
+                      />
+                      <DrawerMenuItem
+                        icon={<ChartIcon className="size-5" />}
+                        label="내 소비"
+                        onClick={() => setActiveNav("spend")}
+                      />
+                      <DrawerMenuItem
+                        icon={<GridIcon className="size-5" />}
+                        label="전체"
+                        onClick={() => setActiveNav("all")}
+                      />
+                    </div>
+                    <Divider className="my-4" />
+                    <div className="space-y-1">
+                      <DrawerMenuItem label="설정" />
+                      <DrawerMenuItem label="고객센터" />
+                    </div>
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
             </div>
 
-            <Button
-              size="icon-sm"
-              variant="ghost"
-              onClick={toggleDarkMode}
-            >
-              {darkMode ? "☀️" : "🌙"}
-            </Button>
+            {/* Center - Title */}
+            <h1 className="toss-headline text-foreground">toss-ui</h1>
+
+            {/* Right - Dark Mode Toggle */}
+            <div className="w-10">
+              <button
+                onClick={toggleDarkMode}
+                className="size-10 flex items-center justify-center rounded-xl hover:bg-muted transition-colors"
+              >
+                {darkMode ? (
+                  <Sun className="size-5 text-foreground" />
+                ) : (
+                  <Moon className="size-5 text-foreground" />
+                )}
+              </button>
+            </div>
           </div>
         </header>
 
@@ -778,6 +852,8 @@ function App() {
 
           {/* ========== LIST ITEM ========== */}
           <Section title="List Item">
+            {/* 기본 리스트 아이템 */}
+            <p className="toss-caption2 text-muted-foreground mb-2">Default</p>
             <List>
               <ListItem
                 leading={
@@ -814,6 +890,34 @@ function App() {
                 badgeVariant="primary"
               />
             </List>
+
+            {/* 컴팩트 리스트 아이템 (계좌 선택) */}
+            <p className="toss-caption2 text-muted-foreground mb-2 mt-6">Compact (계좌 선택)</p>
+            <Card className="card-toss p-3">
+              <List gap="xs">
+                <ListItemCompact
+                  icon={<span className="text-lg">🏦</span>}
+                  title="토스뱅크"
+                  subtitle="1234-56-7890123"
+                  selected
+                />
+                <ListItemCompact
+                  icon={<span className="text-lg">🏛️</span>}
+                  title="국민은행"
+                  subtitle="123-45-678901"
+                />
+                <ListItemCompact
+                  icon={<span className="text-lg">🔵</span>}
+                  title="신한은행"
+                  subtitle="110-123-456789"
+                />
+                <ListItemCompact
+                  icon={<span className="text-lg">🟢</span>}
+                  title="카카오뱅크"
+                  subtitle="3333-12-3456789"
+                />
+              </List>
+            </Card>
           </Section>
 
           {/* ========== SKELETON ========== */}
@@ -911,30 +1015,29 @@ function App() {
           <FAB icon={<Plus className="size-6" />} />
         </FABContainer>
 
-        {/* 하단 네비게이션 - 토스 스타일 탭바 */}
-        <nav className="fixed bottom-0 left-0 right-0 bg-card/95 toss-blur border-t border-border">
-          <div className="flex justify-around max-w-2xl mx-auto px-4 py-1.5 pb-[max(6px,env(safe-area-inset-bottom))]">
+        {/* 하단 네비게이션 - 토스 스타일 탭바 (Filled Icons) */}
+        <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border">
+          <div className="flex justify-around max-w-2xl mx-auto px-2 py-1 pb-[max(4px,env(safe-area-inset-bottom))]">
             {[
-              { icon: Home, label: "홈", key: "home" },
-              { icon: Gift, label: "혜택", key: "benefit" },
-              { icon: PieChart, label: "내 소비", key: "spend" },
-              { icon: LayoutGrid, label: "전체", key: "all" },
+              { Icon: HomeIcon, label: "홈", key: "home" },
+              { Icon: GiftIcon, label: "혜택", key: "benefit" },
+              { Icon: ChartIcon, label: "내 소비", key: "spend" },
+              { Icon: GridIcon, label: "전체", key: "all" },
             ].map((item) => {
-              const Icon = item.icon;
               const isActive = activeNav === item.key;
               return (
                 <button
                   key={item.key}
                   onClick={() => setActiveNav(item.key)}
-                  className={`flex flex-col items-center gap-0.5 py-1.5 px-3 transition-colors ${
+                  className={`flex flex-col items-center gap-0.5 py-2 px-4 transition-colors ${
                     isActive ? "text-foreground" : "text-muted-foreground"
                   }`}
                 >
-                  <Icon 
+                  <item.Icon 
                     className="size-6" 
-                    strokeWidth={isActive ? 2.2 : 1.8}
+                    filled={isActive}
                   />
-                  <span className="toss-caption2 font-medium">{item.label}</span>
+                  <span className="text-[10px] font-medium">{item.label}</span>
                 </button>
               );
             })}

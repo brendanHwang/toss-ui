@@ -13,7 +13,7 @@
  * <Button loading>처리 중...</Button>
  * 
  * // 전체 너비
- * <Button fullWidth size="lg">다음</Button>
+ * <Button fullWidth size="xl">다음</Button>
  */
 
 import * as React from "react"
@@ -28,7 +28,7 @@ import { cn } from "@/lib/utils"
  */
 const buttonVariants = cva(
   // 기본 스타일: 토스 특유의 부드러운 터치 피드백
-  "inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-semibold transition-all duration-150 outline-none disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 active:scale-[0.98] select-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-150 outline-none disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-5 shrink-0 [&_svg]:shrink-0 active:scale-[0.98] select-none",
   {
     variants: {
       variant: {
@@ -62,21 +62,21 @@ const buttonVariants = cva(
       },
       size: {
         /** Small - 보조 버튼, 칩 스타일 (32px) */
-        sm: "h-8 px-3 rounded-lg text-[13px]",
+        sm: "h-8 px-3 rounded-lg text-[13px] [&_svg:not([class*='size-'])]:size-4",
         
-        /** Default - 기본 버튼 (40px) */
-        default: "h-10 px-4 rounded-xl text-[14px]",
+        /** Default - 기본 버튼 (44px) */
+        default: "h-11 px-5 rounded-xl text-[15px]",
         
-        /** Large - 주요 CTA (44px) */
-        lg: "h-11 px-5 rounded-xl text-[15px]",
+        /** Large - 주요 CTA, Dialog 버튼 (48px) */
+        lg: "h-12 px-6 rounded-xl text-[16px]",
         
-        /** Extra Large - 하단 고정 CTA (48px) */
-        xl: "h-12 px-6 rounded-xl text-[16px]",
+        /** Extra Large - 하단 고정 CTA (52px) */
+        xl: "h-[52px] px-6 rounded-xl text-[17px]",
         
         /** 아이콘 버튼들 */
-        icon: "size-10 rounded-xl",
+        icon: "size-11 rounded-xl",
         "icon-sm": "size-8 rounded-lg",
-        "icon-lg": "size-11 rounded-xl",
+        "icon-lg": "size-12 rounded-xl",
       },
       fullWidth: {
         true: "w-full",
@@ -123,7 +123,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {loading ? (
           <>
             <svg
-              className="animate-spin size-4"
+              className="animate-spin size-5"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"

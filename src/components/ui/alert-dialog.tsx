@@ -1,3 +1,25 @@
+/**
+ * @fileoverview TDS Alert Dialog Component
+ * 토스 스타일의 경고/확인 다이얼로그
+ * 
+ * @example
+ * <AlertDialog>
+ *   <AlertDialogTrigger asChild>
+ *     <Button variant="destructive">삭제</Button>
+ *   </AlertDialogTrigger>
+ *   <AlertDialogContent>
+ *     <AlertDialogHeader>
+ *       <AlertDialogTitle>삭제하시겠습니까?</AlertDialogTitle>
+ *       <AlertDialogDescription>이 작업은 되돌릴 수 없습니다.</AlertDialogDescription>
+ *     </AlertDialogHeader>
+ *     <AlertDialogFooter>
+ *       <AlertDialogCancel>취소</AlertDialogCancel>
+ *       <AlertDialogAction>삭제</AlertDialogAction>
+ *     </AlertDialogFooter>
+ *   </AlertDialogContent>
+ * </AlertDialog>
+ */
+
 import * as React from "react"
 import { AlertDialog as AlertDialogPrimitive } from "radix-ui"
 
@@ -71,13 +93,14 @@ const AlertDialogHeader = ({
 )
 AlertDialogHeader.displayName = "AlertDialogHeader"
 
+/** Alert Dialog Footer - 버튼 영역 (토스: 버튼 간격 8px, 상단 여백 20px) */
 const AlertDialogFooter = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     data-slot="alert-dialog-footer"
-    className={cn("flex gap-3 mt-6", className)}
+    className={cn("flex gap-2 mt-5", className)}
     {...props}
   />
 )
@@ -109,18 +132,20 @@ const AlertDialogDescription = React.forwardRef<
 ))
 AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName
 
+/** Alert Action 버튼 - 토스: lg 사이즈 (44px) */
 const AlertDialogAction = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Action>
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Action
     ref={ref}
-    className={cn(buttonVariants({ size: "default" }), "flex-1", className)}
+    className={cn(buttonVariants({ size: "lg" }), "flex-1", className)}
     {...props}
   />
 ))
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName
 
+/** Alert Cancel 버튼 - 토스: lg 사이즈 (44px), outline */
 const AlertDialogCancel = React.forwardRef<
   React.ComponentRef<typeof AlertDialogPrimitive.Cancel>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Cancel>
@@ -128,7 +153,7 @@ const AlertDialogCancel = React.forwardRef<
   <AlertDialogPrimitive.Cancel
     ref={ref}
     className={cn(
-      buttonVariants({ variant: "outline", size: "default" }),
+      buttonVariants({ variant: "outline", size: "lg" }),
       "flex-1",
       className
     )}

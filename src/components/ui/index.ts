@@ -158,8 +158,8 @@ export {
 } from "./tabs"
 
 // List Item
-export { ListItem, List } from "./list-item"
-export type { ListItemProps, ListProps } from "./list-item"
+export { ListItem, ListItemCompact, List } from "./list-item"
+export type { ListItemProps, ListItemCompactProps, ListProps } from "./list-item"
 
 // Divider & Spacer
 export { Divider, Spacer } from "./divider"
