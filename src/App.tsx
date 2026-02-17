@@ -158,6 +158,7 @@ import {
   UnderlineTabsTrigger,
 } from "@/components/ui/tabs";
 import { ListItem, ListItemCompact, List } from "@/components/ui/list-item";
+import { AssetItem, AssetList } from "@/components/ui/asset-item";
 import { Divider, Spacer } from "@/components/ui/divider";
 import {
   Skeleton,
@@ -852,6 +853,42 @@ function App() {
                   <UnderlineTabsTrigger value="more">더보기</UnderlineTabsTrigger>
                 </UnderlineTabsList>
               </UnderlineTabs>
+            </Card>
+          </Section>
+
+          {/* ========== ASSET ITEM (계좌/자산 리스트) ========== */}
+          <Section title="Asset Item">
+            <Card className="card-toss">
+              <AssetList divided>
+                <AssetItem
+                  icon={<span className="text-white text-lg">💎</span>}
+                  iconBg="#3182F6"
+                  amount="51,788,056원"
+                  label="토스증권 기본계좌"
+                  action={<Button size="sm" variant="muted">송금</Button>}
+                />
+                <AssetItem
+                  icon={<span className="text-white text-lg">🏦</span>}
+                  iconBg="#3182F6"
+                  amount="821,145원"
+                  label="토스뱅크 통장"
+                  action={<Button size="sm" variant="muted">송금</Button>}
+                />
+                <AssetItem
+                  icon={<span className="text-white text-lg">💰</span>}
+                  iconBg="#30C85E"
+                  amount="14,431,094원"
+                  label="중개형ISA"
+                />
+                <AssetItem
+                  icon={<span className="text-white text-lg">📊</span>}
+                  iconBg="#FF6B6B"
+                  amount="66,218,836원"
+                  change="+5.6%"
+                  changeType="positive"
+                  label="투자 모아보기 · 7개"
+                />
+              </AssetList>
             </Card>
           </Section>
 

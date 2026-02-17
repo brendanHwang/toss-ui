@@ -161,6 +161,10 @@ export {
 export { ListItem, ListItemCompact, List } from "./list-item"
 export type { ListItemProps, ListItemCompactProps, ListProps } from "./list-item"
 
+// Asset Item (계좌/자산 리스트)
+export { AssetItem, AssetList } from "./asset-item"
+export type { AssetItemProps, AssetListProps } from "./asset-item"
+
 // Divider & Spacer
 export { Divider, Spacer } from "./divider"
 export type { DividerProps, SpacerProps } from "./divider"
