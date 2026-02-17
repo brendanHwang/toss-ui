@@ -102,10 +102,10 @@ const AssetItem = React.forwardRef<HTMLDivElement, AssetItemProps>(
         )}
         {...props}
       >
-        {/* Icon (브랜드 로고) - 40px 원형 */}
+        {/* Icon (브랜드 로고) - 36px 원형 */}
         {icon && (
           <div
-            className="shrink-0 size-10 rounded-full flex items-center justify-center"
+            className="shrink-0 size-9 rounded-full flex items-center justify-center"
             style={{ backgroundColor: iconBg }}
           >
             {icon}
