@@ -34,23 +34,23 @@ const buttonVariants = cva(
       variant: {
         /** Primary - 토스 블루 (#3182F6) */
         default: 
-          "bg-primary text-primary-foreground hover:bg-[#1B64DA] focus-visible:ring-2 focus-visible:ring-primary/30",
+          "bg-primary text-primary-foreground hover:bg-[#1B64DA] focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-0",
         
         /** Secondary - 연한 파랑 배경 */
         secondary:
-          "bg-secondary text-primary hover:bg-[#C7DCFF] focus-visible:ring-2 focus-visible:ring-primary/30",
+          "bg-secondary text-primary hover:bg-[#C7DCFF] focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-0",
         
         /** Outline - 테두리만 */
         outline:
-          "border border-border bg-transparent text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-primary/30",
+          "border border-border bg-transparent text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-0",
         
         /** Ghost - 배경 없음, 호버시 배경 */
         ghost:
-          "bg-transparent text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-primary/30",
+          "bg-transparent text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-0",
         
         /** Destructive - 경고/삭제 액션용 빨강 */
         destructive:
-          "bg-destructive text-white hover:bg-[#D63B48] focus-visible:ring-2 focus-visible:ring-destructive/30",
+          "bg-destructive text-white hover:bg-[#D63B48] focus-visible:ring-2 focus-visible:ring-destructive/30 focus-visible:ring-offset-0",
         
         /** Link - 텍스트 링크 스타일 */
         link: 
@@ -58,7 +58,7 @@ const buttonVariants = cva(
 
         /** Muted - 회색 배경, 덜 강조되는 액션 */
         muted:
-          "bg-muted text-muted-foreground hover:bg-[#E5E8EB] focus-visible:ring-2 focus-visible:ring-muted-foreground/30",
+          "bg-muted text-muted-foreground hover:bg-[#E5E8EB] focus-visible:ring-2 focus-visible:ring-muted-foreground/30 focus-visible:ring-offset-0",
       },
       size: {
         /** Small - 보조 버튼, 칩 스타일 (28px) */
