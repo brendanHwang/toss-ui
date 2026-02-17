@@ -857,6 +857,21 @@ export const ActivityIcon = ({ className, ...props }: SimpleIconProps) => (
   </svg>
 )
 
+export const NavigationIcon = ({ className, ...props }: SimpleIconProps) => (
+  <svg className={cn("size-5", className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <polygon points="3 11 22 2 13 21 11 13 3 11" />
+  </svg>
+)
+
+export const SlidersHorizontalIcon = ({ className, ...props }: SimpleIconProps) => (
+  <svg className={cn("size-5", className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M21 4H14M10 4H3M21 12H12M8 12H3M21 20H16M12 20H3" />
+    <circle cx="12" cy="4" r="2" />
+    <circle cx="10" cy="12" r="2" />
+    <circle cx="14" cy="20" r="2" />
+  </svg>
+)
+
 export const DollarIcon = ({ className, ...props }: SimpleIconProps) => (
   <svg className={cn("size-5", className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M12 1V23" />
@@ -1049,6 +1064,8 @@ export const TossIcon = {
   Activity: ActivityIcon,
   Dollar: DollarIcon,
   Won: WonIcon,
+  Navigation: NavigationIcon,
+  SlidersHorizontal: SlidersHorizontalIcon,
 }
 
 export const BankIcon = {
