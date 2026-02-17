@@ -65,7 +65,7 @@ const DialogContent = React.forwardRef<
       className={cn(
         // 토스 스타일 Dialog
         "fixed left-1/2 top-1/2 z-50 w-[calc(100%-40px)] max-w-md -translate-x-1/2 -translate-y-1/2",
-        "rounded-3xl bg-card p-6",
+        "rounded-2xl bg-card p-5",
         "shadow-lg",
         // 애니메이션
         "data-[state=open]:animate-in data-[state=closed]:animate-out",

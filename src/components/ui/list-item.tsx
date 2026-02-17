@@ -91,7 +91,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         }
         className={cn(
           // 토스 스타일 List Item
-          "flex items-center gap-4 p-4 bg-card rounded-2xl",
+          "flex items-center gap-3 p-3 bg-card rounded-xl",
           "transition-all duration-150",
           clickable && !disabled && [
             "cursor-pointer",
@@ -210,7 +210,7 @@ const ListItemCompact = React.forwardRef<HTMLDivElement, ListItemCompactProps>(
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30",
           ],
           // 선택 시 연한 파란 배경 + 둥근 모서리
-          selected && "bg-secondary rounded-2xl",
+          selected && "bg-secondary rounded-xl",
           disabled && "opacity-40 cursor-not-allowed",
           className
         )}

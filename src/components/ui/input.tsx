@@ -53,8 +53,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             data-slot="input"
             value={value}
             className={cn(
-              // 토스 스타일 Input - radius 14px로 조정
-              "w-full h-12 rounded-[14px]",
+              // 토스 스타일 Input
+              "w-full h-10 rounded-xl",
               "bg-muted border-0",
               "text-[15px] text-foreground placeholder:text-muted-foreground",
               "transition-all duration-150",
@@ -100,8 +100,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         data-slot="input"
         value={value}
         className={cn(
-          // 토스 스타일 Input - radius 14px
-          "w-full h-12 px-4 rounded-[14px]",
+          // 토스 스타일 Input
+          "w-full h-10 px-3.5 rounded-xl",
           "bg-muted border-0",
           "text-[15px] text-foreground placeholder:text-muted-foreground",
           "transition-all duration-150",

@@ -61,22 +61,22 @@ const buttonVariants = cva(
           "bg-muted text-muted-foreground hover:bg-[#E5E8EB] focus-visible:ring-2 focus-visible:ring-muted-foreground/30",
       },
       size: {
-        /** Small - 보조 버튼, 칩 스타일 (32px) */
-        sm: "h-8 px-3 rounded-lg text-[13px] [&_svg:not([class*='size-'])]:size-4",
+        /** Small - 보조 버튼, 칩 스타일 (28px) */
+        sm: "h-7 px-2.5 rounded-md text-[12px] [&_svg:not([class*='size-'])]:size-3.5",
         
-        /** Default - 기본 버튼 (44px) */
-        default: "h-11 px-5 rounded-xl text-[15px]",
+        /** Default - 기본 버튼 (36px) */
+        default: "h-9 px-4 rounded-lg text-[14px]",
         
-        /** Large - 주요 CTA, Dialog 버튼 (48px) */
-        lg: "h-12 px-6 rounded-xl text-[16px]",
+        /** Large - 주요 CTA, Dialog 버튼 (44px) */
+        lg: "h-11 px-5 rounded-xl text-[15px]",
         
-        /** Extra Large - 하단 고정 CTA (52px) */
-        xl: "h-[52px] px-6 rounded-xl text-[17px]",
+        /** Extra Large - 하단 고정 CTA (48px) */
+        xl: "h-12 px-6 rounded-xl text-[16px]",
         
         /** 아이콘 버튼들 */
-        icon: "size-11 rounded-xl",
-        "icon-sm": "size-8 rounded-lg",
-        "icon-lg": "size-12 rounded-xl",
+        icon: "size-9 rounded-lg",
+        "icon-sm": "size-7 rounded-md",
+        "icon-lg": "size-11 rounded-xl",
       },
       fullWidth: {
         true: "w-full",
