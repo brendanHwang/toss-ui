@@ -26,7 +26,7 @@ export default {
 
 ```tsx
 // main.tsx 또는 App.tsx
-import "toss-ui/dist/index.css";
+import "toss-ui/styles.css";
 ```
 
 ## 사용법
