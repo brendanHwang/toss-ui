@@ -89,8 +89,8 @@ const AssetItem = React.forwardRef<HTMLDivElement, AssetItemProps>(
             : undefined
         }
         className={cn(
-          // 토스 홈 계좌 리스트 스타일
-          "flex items-center gap-4 py-4 px-1",
+          // 토스 홈 계좌 리스트 스타일 - 컴팩트
+          "flex items-center gap-3 py-3",
           "transition-all duration-150",
           clickable && !disabled && [
             "cursor-pointer",
@@ -102,10 +102,10 @@ const AssetItem = React.forwardRef<HTMLDivElement, AssetItemProps>(
         )}
         {...props}
       >
-        {/* Icon (브랜드 로고) - 48px 원형 */}
+        {/* Icon (브랜드 로고) - 40px 원형 */}
         {icon && (
           <div
-            className="shrink-0 size-12 rounded-full flex items-center justify-center"
+            className="shrink-0 size-10 rounded-full flex items-center justify-center"
             style={{ backgroundColor: iconBg }}
           >
             {icon}
@@ -115,19 +115,19 @@ const AssetItem = React.forwardRef<HTMLDivElement, AssetItemProps>(
         {/* Content */}
         <div className="flex-1 min-w-0">
           {/* 금액 + 변동률 */}
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-[20px] font-bold text-foreground truncate">
+          <div className="flex items-baseline gap-1">
+            <span className="text-[17px] font-bold text-foreground truncate">
               {amount}
             </span>
             {change && (
-              <span className={cn("text-[15px] font-semibold shrink-0", changeColors[changeType])}>
+              <span className={cn("text-[14px] font-semibold shrink-0", changeColors[changeType])}>
                 {change}
               </span>
             )}
           </div>
           {/* 라벨/계좌명 */}
           {label && (
-            <p className="text-[13px] text-muted-foreground truncate mt-0.5">
+            <p className="text-[13px] text-muted-foreground truncate">
               {label}
             </p>
           )}

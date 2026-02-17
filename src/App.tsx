@@ -858,30 +858,57 @@ function App() {
 
           {/* ========== ASSET ITEM (계좌/자산 리스트) ========== */}
           <Section title="Asset Item">
-            <Card className="card-toss">
-              <AssetList divided>
+            <Card className="card-toss px-4 py-2">
+              <AssetList>
                 <AssetItem
-                  icon={<span className="text-white text-lg">💎</span>}
+                  icon={
+                    <svg className="size-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  }
                   iconBg="#3182F6"
                   amount="51,788,056원"
                   label="토스증권 기본계좌"
-                  action={<Button size="sm" variant="muted">송금</Button>}
+                  action={
+                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-full hover:bg-muted/80 transition-colors">
+                      송금
+                    </button>
+                  }
                 />
                 <AssetItem
-                  icon={<span className="text-white text-lg">🏦</span>}
+                  icon={
+                    <svg className="size-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3 21h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18V7H3v2zm0-6v2h18V3H3z"/>
+                    </svg>
+                  }
                   iconBg="#3182F6"
                   amount="821,145원"
                   label="토스뱅크 통장"
-                  action={<Button size="sm" variant="muted">송금</Button>}
+                  action={
+                    <button className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground bg-muted rounded-full hover:bg-muted/80 transition-colors">
+                      송금
+                    </button>
+                  }
                 />
                 <AssetItem
-                  icon={<span className="text-white text-lg">💰</span>}
+                  icon={
+                    <svg className="size-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="10"/>
+                      <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#30C85E">$</text>
+                    </svg>
+                  }
                   iconBg="#30C85E"
                   amount="14,431,094원"
                   label="중개형ISA"
                 />
                 <AssetItem
-                  icon={<span className="text-white text-lg">📊</span>}
+                  icon={
+                    <svg className="size-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="4" y="14" width="4" height="6"/>
+                      <rect x="10" y="10" width="4" height="10"/>
+                      <rect x="16" y="6" width="4" height="14"/>
+                    </svg>
+                  }
                   iconBg="#FF6B6B"
                   amount="66,218,836원"
                   change="+5.6%"
