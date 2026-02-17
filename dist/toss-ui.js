@@ -7684,7 +7684,7 @@ function jg({ className: e, ...t }) {
     {
       "data-slot": "card",
       className: m(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "bg-white text-card-foreground flex flex-col rounded-lg",
         e
       ),
       ...t
@@ -7697,7 +7697,7 @@ function Ug({ className: e, ...t }) {
     {
       "data-slot": "card-header",
       className: m(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        "flex flex-col gap-1.5 px-5 pt-5",
         e
       ),
       ...t
@@ -7742,7 +7742,7 @@ function qg({ className: e, ...t }) {
     "div",
     {
       "data-slot": "card-content",
-      className: m("px-6", e),
+      className: m("px-5 pb-5", e),
       ...t
     }
   );
