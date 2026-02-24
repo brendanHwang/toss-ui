@@ -123,11 +123,20 @@ Input.displayName = "Input"
 // Search Input - 토스 스타일 검색 입력
 export interface SearchInputProps extends Omit<InputProps, "leftElement"> {
   onClear?: () => void
+  /** 검색 버튼 클릭 또는 Enter 시 호출 */
+  onSearch?: (value: string) => void
 }
 
 const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ className, value, onClear, ...props }, ref) => {
+  ({ className, value, onClear, onSearch, onKeyDown, ...props }, ref) => {
     const hasValue = value !== undefined && value !== ""
+    
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter' && onSearch) {
+        onSearch(String(value ?? ''))
+      }
+      onKeyDown?.(e)
+    }
     
     return (
       <div className="relative">
@@ -155,6 +164,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
             "[&::-webkit-search-decoration]:hidden",
             className
           )}
+          onKeyDown={handleKeyDown}
           {...props}
         />
         

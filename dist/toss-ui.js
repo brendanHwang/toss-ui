@@ -7924,14 +7924,16 @@ const rp = [
 );
 np.displayName = "Input";
 const sp = c.forwardRef(
-  ({ className: e, value: t, onClear: o, ...r }, s) => {
-    const i = t !== void 0 && t !== "";
+  ({ className: e, value: t, onClear: o, onSearch: r, onKeyDown: s, ...i }, a) => {
+    const l = t !== void 0 && t !== "", d = (u) => {
+      u.key === "Enter" && r && r(String(t ?? "")), s?.(u);
+    };
     return /* @__PURE__ */ y("div", { className: "relative", children: [
       /* @__PURE__ */ n("div", { className: "absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none", children: /* @__PURE__ */ n(op, { className: "size-5" }) }),
       /* @__PURE__ */ n(
         "input",
         {
-          ref: s,
+          ref: a,
           type: "search",
           value: t,
           "data-slot": "search-input",
@@ -7942,17 +7944,18 @@ const sp = c.forwardRef(
             "text-[15px] text-foreground placeholder:text-muted-foreground",
             "transition-all duration-150",
             "outline-none pl-11",
-            i ? "pr-11" : "pr-4",
+            l ? "pr-11" : "pr-4",
             "focus:ring-2 focus:ring-primary/30 focus:bg-background",
             // 기본 search input 스타일 제거
             "[&::-webkit-search-cancel-button]:hidden",
             "[&::-webkit-search-decoration]:hidden",
             e
           ),
-          ...r
+          onKeyDown: d,
+          ...i
         }
       ),
-      i && o && /* @__PURE__ */ n(
+      l && o && /* @__PURE__ */ n(
         "button",
         {
           type: "button",
@@ -8492,7 +8495,7 @@ const kp = c.forwardRef(({ className: e, children: t, ...o }, r) => /* @__PURE__
     className: m(
       // 토스 스타일 Select Item
       "relative flex w-full cursor-pointer select-none items-center",
-      "py-2.5 px-3 rounded-lg",
+      "py-2.5 pl-3 pr-9 rounded-lg",
       "text-[15px] text-foreground",
       "outline-none transition-colors",
       "focus:bg-muted",
@@ -8501,8 +8504,8 @@ const kp = c.forwardRef(({ className: e, children: t, ...o }, r) => /* @__PURE__
     ),
     ...o,
     children: [
-      /* @__PURE__ */ n("span", { className: "absolute right-3 flex size-5 items-center justify-center", children: /* @__PURE__ */ n(ju, { children: /* @__PURE__ */ n(lr, { className: "size-5 text-primary" }) }) }),
-      /* @__PURE__ */ n($u, { children: t })
+      /* @__PURE__ */ n(ju, { className: "absolute right-2 shrink-0", children: /* @__PURE__ */ n(lr, { className: "size-5 text-primary" }) }),
+      /* @__PURE__ */ n("span", { className: "truncate", children: /* @__PURE__ */ n($u, { children: t }) })
     ]
   }
 ));
